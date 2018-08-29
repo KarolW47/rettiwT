@@ -23,7 +23,7 @@
             false
         </property>
         <property name="hibernate.connection.password">
-            Zwarzony09871
+            root123
         </property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.show_sql">true</property>

@@ -23,19 +23,19 @@ public final class Utils {
                 .filter(cookie -> USER_COOKIE_NAME.equals(cookie.getName()))
                 .findFirst();
 
+
         if (first.isPresent()) {
             String idFromCookie = first.get().getValue();
 
             Optional<List<User>> userList = UserDao.getInstance().getAll();
-            Optional<User> usersList = userList.get()
+            Optional<User> user = userList.get()
                     .stream()
-                    .filter(user -> idFromCookie.equals(String.valueOf(user.getId())))
+                    .filter(u -> idFromCookie.equals(String.valueOf(u.getId())))
                     .findFirst();
-            if (usersList.isPresent()){
-                return usersList;
-            }
+            return user;
+        } else {
+            return Optional.empty();
         }
-
-        return Optional.empty();
     }
 }
+
